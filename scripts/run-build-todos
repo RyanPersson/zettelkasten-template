@@ -1,0 +1,45 @@
+#!/usr/bin/bash
+
+./public-build-todos
+
+./private-build-todos # run these two scripts to generate lists of todos from subdirectories
+
+./work-build-todos
+
+cd ../public # scripts -> main -> public
+
+(
+echo \# todos
+echo \# todays date is: $(date) 
+echo $'\n'
+) > todos.md # Add initial text to todos.md while overwriting original version.
+
+# push todos up into main & follow it.
+mv todos.md .. # public -> main
+cd .. # public -> main
+
+#Need to individually sort todos here
+(
+echo $'\n' \#\# work related: 
+cat work-output.txt 
+echo $'\n' \#\# knowledge related: 
+cat public-output.txt 
+echo $'\n' \#\# personal related: 
+cat private-output.txt
+) >> todos.md
+
+rm private-output.txt
+rm public-output.txt
+rm work-output.txt
+
+mv todos.md public/
+
+cd .. # main -> root
+
+
+code . main/public/todos.md
+
+exit
+
+
+

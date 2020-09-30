@@ -1,0 +1,25 @@
+#!/usr/bin/bash
+
+cp template-person.md ../../personal/template-person.txt
+cd ../../personal
+
+echo 'Please enter a name'
+
+read filename
+
+echo $filename
+
+(
+echo \# $filename
+echo $(date) $'\n'
+) >> $filename.md
+cat  template-person.txt >> $filename.md
+
+rm template-person.txt
+
+
+cd ..
+
+code . personal/$filename.md  # works
+
+exit

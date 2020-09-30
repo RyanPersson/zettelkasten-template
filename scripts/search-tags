@@ -1,0 +1,35 @@
+#!/usr/bin/bash
+
+echo 'Please enter the tag youd like to search for'
+
+read tag
+
+echo $tag
+
+cd ../public # The directory in which you'd like to search for tags.
+
+grep \#$tag *.md > output.txt  # grabs #todo lines with grep
+
+sed -i 's/.*.md/\r\[\[&\]\]\r/' output.txt  # replaces .*.md with \n [[.*.md]] \n
+cat output.txt
+sed -i 's/.md\]\]/\]\]/' output.txt # replaces .md]] with ]]
+cat output.txt
+
+mv output.txt ..
+cd ..
+
+(
+echo \# $tag-tag
+echo 'tag page'
+cat output.txt    
+) > $tag-tag.md
+
+rm output.txt
+
+mv $tag-tag.md tags/
+
+code . tags/$tag-tag.md 
+
+
+
+exit

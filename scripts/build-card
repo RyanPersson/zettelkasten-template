@@ -1,0 +1,20 @@
+#!/usr/bin/bash
+
+cd ../public
+
+echo 'Please enter your filename'
+
+read filename
+
+echo $filename
+
+(
+echo \# $filename
+echo $(date) $'\n'
+) >> $filename.md
+
+cd ../..
+
+code . main/public/$filename.md  # works
+
+exit

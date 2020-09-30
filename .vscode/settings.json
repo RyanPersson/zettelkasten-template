@@ -1,0 +1,34 @@
+{
+    "pasteImage.path": "./media/",
+    // sort the explorer by modified date in descending order
+    "explorer.sortOrder": "modified",
+    // open files as tabs
+    "workbench.editor.enablePreview": false,
+    // reveal existing files if they are open (avoids tons of tabs)
+    "workbench.editor.revealIfOpen": true,
+    // open files from quick open as tabs
+    "workbench.editor.enablePreviewFromQuickOpen": true,
+    // Markdown specific settings.
+    "[markdown]": {
+        // quickSuggestions true will provide suggestions as you type.
+        // If you turn this on and DO NOT want suggestions
+        // for non-wiki-link, non-tag words,
+        "editor.quickSuggestions": true,
+        // This is poorly documented, but seems to offer suggestions
+        // from any word in open document when turned on, which
+        // can be a little distracting in markdown docs:
+        "editor.wordBasedSuggestions": false,
+        "editor.tabSize": 2,
+        // Set this to false if you turn on quickSuggestions
+        // but don't want suggestions for markdown related snippets
+        // as you type:
+        "editor.suggest.showSnippets": false,
+
+      },
+      "markdown-preview-enhanced.automaticallyShowPreviewOfMarkdownBeingEdited": false,
+      "markdown-preview-enhanced.printBackground": true,
+      "markdown-preview-enhanced.singlePreview": false,
+      "vscodeMarkdownNotes.noteCompletionConvention": "noExtension",
+      "markdown-preview-enhanced.chromePath": "test-hello-world",
+      "vscodeMarkdownNotes.pipedWikiLinksSeparator": "\\&",
+}

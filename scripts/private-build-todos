@@ -1,0 +1,15 @@
+#!/usr/bin/bash
+
+cd ../../personal
+
+grep \#todo *.md > output.txt  # grabs #todo lines with grep
+
+sed -i 's/.*.md/\r\[\[&\]\]\r/' output.txt  # replaces .*.md with \n [[.*.md]] \n
+cat output.txt
+sed -i 's/.md\]\]/\]\]/' output.txt # replaces .md]] with ]]
+cat output.txt
+
+# mv renames the file private-output.txt
+mv output.txt ../main/private-output.txt
+
+exit
